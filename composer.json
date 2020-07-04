@@ -1,0 +1,37 @@
+{
+  "name": "alexmorbo/react-redis-bundle",
+  "description": "ReactPHP Service for redis",
+  "keywords": ["reactphp", "redis", "asyncphp"],
+  "type": "symfony-bundle",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Alex Morbo",
+      "email": "alex@morbo.ru"
+    }
+  ],
+  "require": {
+    "php": ">=7.4",
+    "symfony/framework-bundle": "^5.0",
+    "symfony/dependency-injection": "^5.0",
+    "clue/redis-react": "^2.3",
+    "symfony/yaml": "^5.0",
+    "alexmorbo/react-loop-bundle": "0.*"
+  },
+  "require-dev": {
+    "symfony/phpunit-bridge": "^5.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Morbo\\React\\Redis\\": ""
+    },
+    "exclude-from-classmap": [
+      "/Tests/"
+    ]
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "0.0.x-dev"
+    }
+  }
+}

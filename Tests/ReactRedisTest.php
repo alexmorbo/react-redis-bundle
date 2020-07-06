@@ -30,7 +30,7 @@ class ReactRedisTest extends KernelTestCase
         $this->assertIsScalar(self::$container->getParameter('react.redis.dsn'));
     }
 
-    public function testPromise()
+    public function testClient()
     {
         $container = new ContainerBuilder();
 

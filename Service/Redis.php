@@ -18,10 +18,6 @@ class Redis
 
     private ?Client $client;
 
-    private bool $connected = false;
-
-    private array $closeHandlers = [];
-
     private string $connectionString;
 
     public function __construct(ContainerInterface $container, Loop $loop)

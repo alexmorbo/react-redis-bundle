@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Morbo\React\Redis;
 
+use Clue\React\Redis\Client;
 use Morbo\React\Loop\DependencyInjection\ReactLoopExtension;
 use Morbo\React\Redis\DependencyInjection\ReactRedisExtension;
 use Morbo\React\Redis\Service\Redis;
-use React\Promise\Promise;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
@@ -43,11 +43,6 @@ class ReactRedisTest extends KernelTestCase
         /** @var Redis $redis */
         $redis = $container->get('react.redis');
 
-        $promise = new Promise(
-            function () {
-            }
-        );
-
-        $this->assertEquals(get_class($promise), get_class($redis->ready()));
+        $this->assertTrue($redis->getClient() instanceof Client);
     }
 }

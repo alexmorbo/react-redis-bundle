@@ -4,6 +4,6 @@ services:
 
   react.redis:
     class: Morbo\React\Redis\Service\Redis
-    arguments: ["@service_container", "@react.loop"]
+    arguments: ["@service_container", "@react.loop", "connectionString"]
 
   Morbo\React\Redis\Service\Redis: '@react.redis'

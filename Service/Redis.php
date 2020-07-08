@@ -20,14 +20,13 @@ class Redis
 
     private string $connectionString;
 
-    public function __construct(ContainerInterface $container, Loop $loop)
+    public function __construct(ContainerInterface $container, Loop $loop, string $connectionString)
     {
         $this->container = $container;
         $this->loop = $loop->getLoop();
-        $this->connectionString = $container->getParameter('react.redis.dsn');
 
         $factory = new Factory($this->loop);
-        $this->client = $factory->createLazyClient($this->connectionString);
+        $this->client = $factory->createLazyClient($connectionString);
     }
 
     public function getClient(): Client

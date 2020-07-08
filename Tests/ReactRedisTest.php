@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Morbo\React\Redis;
 
 use Clue\React\Redis\Client;
-use Morbo\React\Loop\DependencyInjection\ReactLoopExtension;
 use Morbo\React\Redis\DependencyInjection\ReactRedisExtension;
 use Morbo\React\Redis\Service\Redis;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
@@ -25,17 +24,9 @@ class ReactRedisTest extends KernelTestCase
         $this->assertTrue(self::$container->has(Redis::class), '"Redis::class" is loaded');
     }
 
-    public function testParametersBag()
-    {
-        $this->assertIsScalar(self::$container->getParameter('react.redis.dsn'));
-    }
-
     public function testClient()
     {
         $container = new ContainerBuilder();
-
-        $loopExtension = new ReactLoopExtension();
-        $loopExtension->load([], $container);
 
         $extension = new ReactRedisExtension();
         $extension->load([], $container);
